@@ -1,0 +1,5 @@
+name: FullBright
+version: @version@
+author: Ninjoh
+main: com.gitlab.martijn_heil.fullbright.FullBright
+depend: [NinCommands]
