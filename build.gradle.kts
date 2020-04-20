@@ -7,8 +7,8 @@ import org.gradle.plugins.ide.idea.model.IdeaLanguageLevel
 
 plugins {
     `java-gradle-plugin`
-    kotlin("jvm") version "1.2.50"
-    id("com.github.johnrengelman.shadow") version "2.0.3"
+    kotlin("jvm") version "1.3.72"
+    id("com.github.johnrengelman.shadow") version "5.2.0"
     idea
 }
 
@@ -36,7 +36,7 @@ tasks {
     }
     withType<ShadowJar> {
         this.classifier = null
-        this.configurations = listOf(project.configurations.shadow)
+        this.configurations = listOf(project.configurations.shadow.get())
     }
 }
 
@@ -61,7 +61,7 @@ idea {
 }
 
 dependencies {
-    compileOnly("org.bukkit:bukkit:1.12.2-R0.1-SNAPSHOT") { isChanging = true }
+    compileOnly("org.bukkit:bukkit:1.15.2-R0.1-SNAPSHOT") { isChanging = true }
     implementation("com.gitlab.martijn-heil:NinCommands:55bf03cf21") { isChanging = true }
 
     shadow(kotlin("stdlib"))
